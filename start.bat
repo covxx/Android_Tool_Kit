@@ -9,14 +9,14 @@ ECHO Any issues please report in the forum
 ECHO Remeber to give thanks if this helped
 ECHO = = = = = = = = = = = = = = == = = = == =
 ECHO This is in active development 
-ECHO Alpha 6-10/16
+ECHO Alpha 8-10/16
 ECHO
 ECHO  (~:
 ECHO =========================================
 ECHO 1. ADB stuff
 ECHO 2. 
 ECHO 3. nothing yet..
-ECHO 4. vzw gs4 stuff
+ECHO 4. Devices
 ECHO 5. EXIT 
 ECHO.
 SET INPUT=
@@ -28,15 +28,30 @@ IF /I '%INPUT%'=='3' GOTO
 IF /I '%INPUT%'=='4' GOTO GS4
 IF /I '%INPUT%'=='5' GOTO QUIT
 
- :GS4 
+ :device
+ CLS
+ECHO All device specific things
+ECHO More will be added soon
+ECHO ----------------------------
+ECHO 1. Galaxy S4 VZW
+ECHO 2. HTC DNA (Coming soon)
+ECHO ----------------------------
+SET INPUT=
+SET /P INPUT=SELECT NUMBER OF OPTION:  
+
+IF /I '%INPUT%'=='1' GOTO GS4VZW
+IF /I '%INPUT%'=='2' GOTO DNA
+IF /I '%INPUT%'=='3' GOTO x
+IF /I '%INPUT%'=='4' GOTO x
+IF /I '%INPUT%'=='5' GOTO x
+ :GS4VZW
 cls
 cd devices\GS4\rootmdk\
-ECHO This stuff will only work for galaxy s4 on verizon on VRUAMDK build
-ECHO For now...
-ECHO =============================
+ECHO This will only work for galaxy s4 on verizon on VRUAMDK build
+ECHO =============================================================
 ECHO 1.Start root - after pre- release kernel is flashed-
-ECHO 2.How to root
-ECHO 3.Maybe more later?
+ECHO 2.How to root(coming soon)
+ECHO 3.
 ECHO 4.Go back to main menu
 ECHO.
 SET INPUT=
@@ -101,7 +116,7 @@ adb kill-server
 ECHO now flash the stock kernel
 ECHO opening odin..
 ECHO .
-\tools\odin\odin3.exe
+tools\odin\odin3.exe
 GOTO MENU
 
 
@@ -114,5 +129,36 @@ ECHO When you're ready hit enter
 ECHO. 
 pause
 adb sideload toolkit\update.zip
+goto MENU
+
+ :adb
+ CLS
+ECHO ADB Commands
+ECHO --------------
+ECHO 1.
+ECHO 2.
+ECHO 3.
+ECHO 4.
+ECHO 5.
+ECHO --------------
+ECHO Will be added in next release
+SET INPUT=
+SET /P INPUT=SELECT NUMBER OF OPTION:  
+
+IF /I '%INPUT%'=='1' GOTO x
+IF /I '%INPUT%'=='2' GOTO x
+IF /I '%INPUT%'=='3' GOTO x
+IF /I '%INPUT%'=='4' GOTO x
+IF /I '%INPUT%'=='5' GOTO x
+
+GOTO MENU 
+
+	:DNA
+	CLS
+	
+ECHO Nothing here yet..
+ECHO Press enter to go back to main menu
+pause
+GOTO MENU	
 
 

@@ -1,10 +1,30 @@
-UTK or universal android tool kit is open source 
-
+UTK or universal android tool kit is open source
+.
 You can add whatever you like to it (if you're allowed)
 Remember to give credit where its due
-
+.
 OG Thread http://droid-hive.com/index.php?/topic/2357-all-in-one-tool-alpha/
-
+.
 @covxx 
+.
+Make sure to update the version number when editing
+.
+*ADDING NEW DEVICES*
+ Add the device to the :device menu 
+ Then add a new menu for device like this
+ 
+  :device name
+ CLS
+ECHO Stuff goes here 
+SET INPUT=
+SET /P INPUT=SELECT NUMBER OF OPTION:  
 
-Make sure to update the verison number when editing
+IF /I '%INPUT%'=='1' GOTO x
+IF /I '%INPUT%'=='2' GOTO x
+IF /I '%INPUT%'=='3' GOTO x
+IF /I '%INPUT%'=='4' GOTO x
+IF /I '%INPUT%'=='5' GOTO x
+
+____________________________________
+
+Going to add more here some time
