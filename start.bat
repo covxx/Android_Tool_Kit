@@ -6,7 +6,7 @@ ECHO WELCOME TO COVXX'S TOOLKIT (Alpha 5)
 ECHO =========================================
 ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
-ECHO Remeber to give thanks if this helped
+ECHO Remember to give thanks if this helped
 ECHO = = = = = = = = = = = = = = == = = = = =
 ECHO This is in active development 
 ECHO Alpha8 10/16
@@ -44,10 +44,12 @@ IF /I '%INPUT%'=='2' GOTO DNA
 IF /I '%INPUT%'=='3' GOTO x
 IF /I '%INPUT%'=='4' GOTO x
 IF /I '%INPUT%'=='5' GOTO x
+
  :GS4VZW
+
 cls
 cd devices\GS4\rootmdk\
-ECHO This will only work for galaxy s4 on verizon on VRUAMDK build
+ECHO This will only work for galaxy S4 on Verizon on VRUAMDK build
 ECHO =============================================================
 ECHO 1.Start root - after pre- release kernel is flashed-
 ECHO 2.How to root(coming soon)
@@ -58,21 +60,22 @@ SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
 IF /I '%INPUT%'=='1' GOTO S4ROOTVZW
-IF /I '%INPUT%'=='2' GOTO hwtorot
+IF /I '%INPUT%'=='2' GOTO howtoroots4vzw
 IF /I '%INPUT%'=='3' GOTO 
 IF /I '%INPUT%'=='4' GOTO MENU
 IF /I '%INPUT%'=='5' GOTO QUIT
 
  :S4ROOTVZW
+
 cls
 ECHO =====================================
 ECHO =Thanks to Dan Rosenberg (@djrbliss)=
 ECHO.
-ECHO =This motochopper - not made by me at all=
+ECHO =This motochopper -made by @djrbliss=
 ECHO.
 ECHO =This can break your phone,if you do not my fault=
 ECHO.
-ECHO =Or Dans=
+ECHO =Or Dan=
 ECHO.
 ECHO =Or anyone other then you=
 ECHO.
@@ -123,7 +126,7 @@ GOTO MENU
  :sd
 cls
 ECHO Are you ready to sideload?
-ECHO Remeber to make surey the package name is 'update.zip'
+ECHO Remember to make sure the package name is 'update.zip'
 ECHO Or this wont work
 ECHO When you're ready hit enter
 ECHO. 
@@ -153,8 +156,8 @@ IF /I '%INPUT%'=='5' GOTO x
 
 GOTO MENU 
 
-	:DNA
-	CLS
+    :DNA
+CLS
 	
 ECHO Nothing here yet..
 ECHO Press enter to go back to main menu
@@ -164,8 +167,22 @@ GOTO MENU
 	:nexus4
 cls
 ECHO Howd you get here?!
-ECHO bai
+ECHO .
 goto menu 
 
+	:howtoroots4vzw
+cls
+ECHO How to root your Verizon S4
+ECHO --------------------------------------
+ECHO Before proceeding with the tool you need to flash the pre-relese kernel (devices\GS4\rootmdk\kernels)
+ECHO Make sure your phone has ADB debugging on 
+
+ECHO If this still cannot find your device
+ECHO Install clockworkmods universal ADB drivers
+ECHO after root make sure to open super SU and check for binary/app updates
+ECHO Once you verified that super su is working ,using Odin flash the kernel
+ECHO are you ready?
+Pause
+GOTO GS4VZW
 
 
