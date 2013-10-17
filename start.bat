@@ -7,15 +7,15 @@ ECHO =========================================
 ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remeber to give thanks if this helped
-ECHO = = = = = = = = = = = = = = == = = = == =
+ECHO = = = = = = = = = = = = = = == = = = = =
 ECHO This is in active development 
-ECHO Alpha 8-10/16
-ECHO
+ECHO Alpha8 10/16
+ECHO .
 ECHO  (~:
 ECHO =========================================
 ECHO 1. ADB stuff
-ECHO 2. 
-ECHO 3. nothing yet..
+ECHO 2. Info/about
+ECHO 3. (place holder)
 ECHO 4. Devices
 ECHO 5. EXIT 
 ECHO.
@@ -160,5 +160,12 @@ ECHO Nothing here yet..
 ECHO Press enter to go back to main menu
 pause
 GOTO MENU	
+
+	:nexus4
+cls
+ECHO Howd you get here?!
+ECHO bai
+goto menu 
+
 
 
