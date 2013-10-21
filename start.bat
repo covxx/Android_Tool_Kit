@@ -1,20 +1,19 @@
-@Echo off
-
+@echo off
  :MENU
  CLS
-ECHO WELCOME TO COVXX'S TOOLKIT (Alpha 5)
+ECHO WELCOME TO COVXX'S UNIVERSAL TOOLKIT
 ECHO =========================================
 ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
 ECHO = = = = = = = = = = = = = = == = = = = =
 ECHO This is in active development 
-ECHO Alpha8 10/16
-ECHO .
-ECHO  (~:
+ECHO Alpha 12  10/21
+ECHO 
 ECHO =========================================
 ECHO 1. ADB stuff
-ECHO 2. Info/about
+ECHO 2. Info
+ECHO 3. Help
 ECHO 3. (place holder)
 ECHO 4. Devices
 ECHO 5. EXIT 
@@ -22,12 +21,31 @@ ECHO.
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
-IF /I '%INPUT%'=='1' GOTO sl
-IF /I '%INPUT%'=='2' GOTO rb
+IF /I '%INPUT%'=='1' GOTO adb
+IF /I '%INPUT%'=='2' GOTO info
 IF /I '%INPUT%'=='3' GOTO 
-IF /I '%INPUT%'=='4' GOTO GS4
+IF /I '%INPUT%'=='4' GOTO devices
 IF /I '%INPUT%'=='5' GOTO QUIT
 
+ :info
+cls
+ECHO            info
+ECHO -----------------------------------
+ECHO I started this project 
+ECHO because I was tired of 
+ECHO having to use different toolkits
+ECHO for each device. Thus this was born
+ECHO -----------------------------------
+ECHO I'll add more here someday
+ECHO Software version Alpha 12
+ECHO Press enter when ready to go back
+PAUSE
+GOTO MENU
+
+ :help
+ECHO For help with 
+ECHO Press enter when ready to go back
+GOTO MENU
  :device
  CLS
 ECHO All device specific things
@@ -125,20 +143,22 @@ GOTO MENU
 
  :sd
 cls
-ECHO Are you ready to sideload?
+ECHO SIDELOAD
+ECHO -------------------------------------------------------
+ECHO Are you ready to side-load?
 ECHO Remember to make sure the package name is 'update.zip'
-ECHO Or this wont work
+ECHO and its in the root folder
 ECHO When you're ready hit enter
 ECHO. 
 pause
-adb sideload toolkit\update.zip
+adb side-load toolkit\update.zip
 goto MENU
 
  :adb
  CLS
 ECHO ADB Commands
 ECHO --------------
-ECHO 1.
+ECHO 1.side load
 ECHO 2.
 ECHO 3.
 ECHO 4.
@@ -148,7 +168,7 @@ ECHO Will be added in next release
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
-IF /I '%INPUT%'=='1' GOTO x
+IF /I '%INPUT%'=='1' GOTO sd
 IF /I '%INPUT%'=='2' GOTO x
 IF /I '%INPUT%'=='3' GOTO x
 IF /I '%INPUT%'=='4' GOTO x
@@ -166,7 +186,7 @@ GOTO MENU
 
 	:nexus4
 cls
-ECHO Howd you get here?!
+ECHO How'd you get here?!
 ECHO .
 goto menu 
 
@@ -174,15 +194,13 @@ goto menu
 cls
 ECHO How to root your Verizon S4
 ECHO --------------------------------------
-ECHO Before proceeding with the tool you need to flash the pre-relese kernel (devices\GS4\rootmdk\kernels)
+ECHO Before proceeding with the tool you need to flash the pre-release kernel (devices\GS4\rootmdk\kernels)
 ECHO Make sure your phone has ADB debugging on 
-
 ECHO If this still cannot find your device
-ECHO Install clockworkmods universal ADB drivers
+ECHO Install clockwork mod's universal ADB drivers
 ECHO after root make sure to open super SU and check for binary/app updates
-ECHO Once you verified that super su is working ,using Odin flash the kernel
-ECHO are you ready?
+ECHO Once you verified that super SU is working ,using Odin flash the kernel
+ECHO When ready press enter
 Pause
-GOTO GS4VZW
-
+GOTO S4ROOTVZW
 
