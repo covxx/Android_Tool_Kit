@@ -1,6 +1,6 @@
-@echo off
+@ECHO off
+
  :MENU
- CLS
 ECHO WELCOME TO COVXX'S UNIVERSAL TOOLKIT
 ECHO =========================================
 ECHO Using this tool at your own risk
@@ -11,7 +11,7 @@ ECHO This is in active development
 ECHO Alpha 12  10/21
 ECHO 
 ECHO =========================================
-ECHO 1. ADB stuff
+ECHO 1. ADB
 ECHO 2. Info
 ECHO 3. Help
 ECHO 3. (place holder)
@@ -28,7 +28,7 @@ IF /I '%INPUT%'=='4' GOTO devices
 IF /I '%INPUT%'=='5' GOTO QUIT
 
  :info
-cls
+CLS
 ECHO            info
 ECHO -----------------------------------
 ECHO I started this project 
@@ -46,6 +46,7 @@ GOTO MENU
 ECHO For help with 
 ECHO Press enter when ready to go back
 GOTO MENU
+
  :device
  CLS
 ECHO All device specific things
@@ -65,12 +66,12 @@ IF /I '%INPUT%'=='5' GOTO x
 
  :GS4VZW
 
-cls
+CLS
 cd devices\GS4\rootmdk\
 ECHO This will only work for galaxy S4 on Verizon on VRUAMDK build
 ECHO =============================================================
 ECHO 1.Start root - after pre- release kernel is flashed-
-ECHO 2.How to root(coming soon)
+ECHO 2.How to root
 ECHO 3.
 ECHO 4.Go back to main menu
 ECHO.
@@ -85,64 +86,47 @@ IF /I '%INPUT%'=='5' GOTO QUIT
 
  :S4ROOTVZW
 
-cls
+CLS
 ECHO =====================================
 ECHO =Thanks to Dan Rosenberg (@djrbliss)=
-ECHO.
 ECHO =This motochopper -made by @djrbliss=
-ECHO.
 ECHO =This can break your phone,if you do not my fault=
-ECHO.
 ECHO =Or Dan=
-ECHO.
 ECHO =Or anyone other then you=
-ECHO.
 ECHO =Enjoy root though (~:=
-ECHO.
 ECHO =Press enter to root your phone...=
 ECHO ===================================
-pause
-
+PAUSE
 ECHO.
-
 adb kill-server
-
 ECHO Waiting for device...
 adb wait-for-device
-
 ECHO Device found.
-
 ECHO Pushing exploit...
 adb push pwn /data/local/tmp/
 adb shell chmod 755 /data/local/tmp/pwn
-
 ECHO Pushing root tools...
 adb push su /data/local/tmp/
 adb push busybox /data/local/tmp/
 adb install Superuser.apk
-
 ECHO Rooting phone...
-adb shell /data/local/tmp/pwn
-
+ad shell /data/local/tmp/pwn
 ECHO Cleaning up...
 adb shell rm /data/local/tmp/pwn
 adb shell rm /data/local/tmp/su
 adb shell rm /data/local/tmp/busybox
-
 ECHO Exploit complete. Press enter to reboot
-pause
+PAUSE
 adb reboot
 adb kill-server
-
 ECHO now flash the stock kernel
 ECHO opening odin..
 ECHO .
 tools\odin\odin3.exe
 GOTO MENU
 
-
  :sd
-cls
+CLS
 ECHO SIDELOAD
 ECHO -------------------------------------------------------
 ECHO Are you ready to side-load?
@@ -150,48 +134,148 @@ ECHO Remember to make sure the package name is 'update.zip'
 ECHO and its in the root folder
 ECHO When you're ready hit enter
 ECHO. 
-pause
+PAUSE
 adb side-load toolkit\update.zip
-goto MENU
+GOTO MENU
+
+:4p
+ CLS
+ ECHO This will change your install location to 
+ ECHO your phone's memory. This is for Android devices
+ ECHO on 4.0 and below. 
+ ECHO --------------------------
+ ECHO Your device must have adb debugging enabled
+ ECHO press enter when ready
+ PAUSE
+ adb kill-server
+ ECHO Waiting for device...
+ adb wait-for-device
+ ECHO Device found.
+ ECHO Setting install to phone
+ adb shell pm setInstallLocation 0
+ ECHO Completed,
+ PAUSE
+ GOTO MENU 
+ 
+ :4xp
+ CLS
+ ECHO This will change your install location to 
+ ECHO your phone's memory. This is for Android devices
+ ECHO on 4.0 and below. 
+ ECHO --------------------------
+ ECHO Your device must have adb debugging enabled
+ ECHO press enter when ready
+ PAUSE
+ adb kill-server
+ ECHO Waiting for device...
+ adb wait-for-device
+ ECHO Device found.
+ ECHO Setting install to phone
+adb shell pm set-install-location 0
+ ECHO Completed,
+ PAUSE
+ GOTO MENU 
+ 
+    :installphone
+CLS
+ECHO Change install location to SD
+ECHO -------------------------------
+ECHO If android 4.0 and below type 1
+ECHO If android 4.x and above type 2
+ECHO --------------------------------
+ECHO.
+SET INPUT=
+SET /P INPUT=SELECT NUMBER OF OPTION:  
+IF /I '%INPUT%'=='1' GOTO 4p
+IF /I '%INPUT%'=='2' GOTO 4xp
 
  :adb
- CLS
+CLS
 ECHO ADB Commands
 ECHO --------------
-ECHO 1.side load
-ECHO 2.
-ECHO 3.
+ECHO 1.Side load
+ECHO 2.Change install location to SD
+ECHO 3.Change install location to Phone
 ECHO 4.
 ECHO 5.
 ECHO --------------
-ECHO Will be added in next release
+ECHO more will be added in next release
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
 IF /I '%INPUT%'=='1' GOTO sd
-IF /I '%INPUT%'=='2' GOTO x
-IF /I '%INPUT%'=='3' GOTO x
+IF /I '%INPUT%'=='2' GOTO installsd
+IF /I '%INPUT%'=='3' GOTO installphone
 IF /I '%INPUT%'=='4' GOTO x
 IF /I '%INPUT%'=='5' GOTO x
 
-GOTO MENU 
-
-    :DNA
+ :4
+ CLS
+ ECHO This will change your install location to 
+ ECHO your SD card. This is for Android devices
+ ECHO on 4.0 and below. 
+ ECHO --------------------------
+ ECHO Your device must have adb debugging enabled
+ ECHO press enter when ready
+ PAUSE
+ adb kill-server
+ ECHO Waiting for device...
+ adb wait-for-device
+ ECHO Device found.
+ ECHO Setting install to SD
+ adb shell pm setInstallLocation 2
+ ECHO Completed, you can now move all apps to your sd
+ PAUSE
+ GOTO MENU 
+ 
+ :4.x
+ CLS
+ ECHO This will change your install location to 
+ ECHO your SD card. This is for Android devices
+ ECHO on 4.0 and below. 
+ ECHO --------------------------
+ ECHO Your device must have adb debugging enabled
+ ECHO press enter when ready
+ PAUSE
+ adb kill-server
+ ECHO Waiting for device...
+ adb wait-for-device
+ ECHO Device found.
+ ECHO Setting install to SD
+adb shell pm set-install-location 2
+ ECHO Completed, you can now move all apps to your sd
+ PAUSE
+ GOTO MENU 
+ 
+    :installsd
 CLS
+ECHO Change install location to SD
+ECHO -------------------------------
+ECHO If android <4.0 type 1
+ECHO If android 4.x> type 2
+ECHO --------------------------------
+ECHO
+SET INPUT=
+SET /P INPUT=SELECT NUMBER OF OPTION:  
+IF /I '%INPUT%'=='1' GOTO 4
+IF /I '%INPUT%'=='2' GOTO 4.x
+
 	
+    :DNA
+CLS	
 ECHO Nothing here yet..
 ECHO Press enter to go back to main menu
-pause
+PAUSE
 GOTO MENU	
 
 	:nexus4
-cls
+CLS
 ECHO How'd you get here?!
 ECHO .
-goto menu 
+GOTO MENU 
 
 	:howtoroots4vzw
-cls
+CLS
 ECHO How to root your Verizon S4
 ECHO --------------------------------------
 ECHO Before proceeding with the tool you need to flash the pre-release kernel (devices\GS4\rootmdk\kernels)
@@ -201,6 +285,6 @@ ECHO Install clockwork mod's universal ADB drivers
 ECHO after root make sure to open super SU and check for binary/app updates
 ECHO Once you verified that super SU is working ,using Odin flash the kernel
 ECHO When ready press enter
-Pause
+PAUSE
 GOTO S4ROOTVZW
 
