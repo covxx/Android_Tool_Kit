@@ -1,86 +1,98 @@
+REM I started this back in my android days
+REM Now I'm too lazy too update since I no longer use these commands
+REM Maybe one day i'll finanly re-code this in C
+REM Don't count on it, at all.
 @ECHO off
 
  :MENU
-ECHO WELCOME TO COVXX'S UNIVERSAL TOOLKIT
-ECHO =========================================
+ECHO Welcome To covxx's Android Toolkit (that isn't and never will be done bc lazy srry)
+ECHO ===================================================================================
 ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
 ECHO = = = = = = = = = = = = = = == = = = = =
-ECHO This is in active development 
-ECHO Alpha 12  10/21
-ECHO 
-ECHO =========================================
-ECHO 1. ADB
+ECHO This is in kinda-active development 
+ECHO Beta 1  6/5/14-FINALLY
+ECHO ====================================================================================
+ECHO 1. ADB Commands
 ECHO 2. Info
 ECHO 3. Help
-ECHO 3. (place holder)
 ECHO 4. Devices
 ECHO 5. EXIT 
 ECHO.
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
-IF /I '%INPUT%'=='1' GOTO adb
-IF /I '%INPUT%'=='2' GOTO info
-IF /I '%INPUT%'=='3' GOTO 
-IF /I '%INPUT%'=='4' GOTO devices
+IF /I '%INPUT%'=='1' GOTO ADB
+IF /I '%INPUT%'=='2' GOTO INFO
+IF /I '%INPUT%'=='3' GOTO HELP
+IF /I '%INPUT%'=='4' GOTO DEVICE
 IF /I '%INPUT%'=='5' GOTO QUIT
 
- :info
+ :INFO
 CLS
-ECHO            info
+ECHO            Info
 ECHO -----------------------------------
 ECHO I started this project 
 ECHO because I was tired of 
 ECHO having to use different toolkits
-ECHO for each device. Thus this was born
+ECHO for each device, Thus this was born
+ECHO This will be re-written in C one day
+ECHO when I get bored like now.
 ECHO -----------------------------------
 ECHO I'll add more here someday
-ECHO Software version Alpha 12
+ECHO Version: Beta 1 (this is probably outdated)
 ECHO Press enter when ready to go back
 PAUSE
 GOTO MENU
 
- :help
-ECHO For help with 
+ :HELP
+REM ECHO For help with 
+ECHO This isn't coded
 ECHO Press enter when ready to go back
 GOTO MENU
-
- :device
+REM this isn't done and probably wont ever be 
+ :DEVICE
  CLS
 ECHO All device specific things
 ECHO More will be added soon
 ECHO ----------------------------
 ECHO 1. Galaxy S4 VZW
-ECHO 2. HTC DNA (Coming soon)
+ECHO 2. HTC DNA
+ECHO 4. Nexus 4
 ECHO ----------------------------
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
 IF /I '%INPUT%'=='1' GOTO GS4VZW
 IF /I '%INPUT%'=='2' GOTO DNA
-IF /I '%INPUT%'=='3' GOTO x
+IF /I '%INPUT%'=='3' GOTO NEXUS4
 IF /I '%INPUT%'=='4' GOTO x
 IF /I '%INPUT%'=='5' GOTO x
 
+ :DNA
+ ECHO Nothing here as of now
+ ECHO To go back
+ GOTO MENU
+ PAUSE
+ 
  :GS4VZW
 
 CLS
 cd devices\GS4\rootmdk\
-ECHO This will only work for galaxy S4 on Verizon on VRUAMDK build
+ECHO This will only work for Galaxy S4 on Verizon on VRUAMDK build
 ECHO =============================================================
 ECHO 1.Start root - after pre- release kernel is flashed-
 ECHO 2.How to root
-ECHO 3.
+REM ECHO 3.
 ECHO 4.Go back to main menu
 ECHO.
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
 IF /I '%INPUT%'=='1' GOTO S4ROOTVZW
-IF /I '%INPUT%'=='2' GOTO howtoroots4vzw
-IF /I '%INPUT%'=='3' GOTO 
+IF /I '%INPUT%'=='2' GOTO ROOTS4VZW
+REM IF /I '%INPUT%'=='3' GOTO 
 IF /I '%INPUT%'=='4' GOTO MENU
 IF /I '%INPUT%'=='5' GOTO QUIT
 
@@ -125,7 +137,7 @@ ECHO .
 tools\odin\odin3.exe
 GOTO MENU
 
- :sd
+ :sideload
 CLS
 ECHO SIDELOAD
 ECHO -------------------------------------------------------
@@ -189,25 +201,21 @@ SET /P INPUT=SELECT NUMBER OF OPTION:
 IF /I '%INPUT%'=='1' GOTO 4p
 IF /I '%INPUT%'=='2' GOTO 4xp
 
- :adb
+ :ADB
 CLS
 ECHO ADB Commands
 ECHO --------------
 ECHO 1.Side load
 ECHO 2.Change install location to SD
 ECHO 3.Change install location to Phone
-ECHO 4.
-ECHO 5.
 ECHO --------------
-ECHO more will be added in next release
+ECHO more will be added never
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
-IF /I '%INPUT%'=='1' GOTO sd
+IF /I '%INPUT%'=='1' GOTO sideload
 IF /I '%INPUT%'=='2' GOTO installsd
 IF /I '%INPUT%'=='3' GOTO installphone
-IF /I '%INPUT%'=='4' GOTO x
-IF /I '%INPUT%'=='5' GOTO x
 
  :4
  CLS
@@ -228,7 +236,7 @@ IF /I '%INPUT%'=='5' GOTO x
  PAUSE
  GOTO MENU 
  
- :4.x
+ :4x
  CLS
  ECHO This will change your install location to 
  ECHO your SD card. This is for Android devices
@@ -268,13 +276,13 @@ ECHO Press enter to go back to main menu
 PAUSE
 GOTO MENU	
 
-	:nexus4
+	:NEXUS4
 CLS
 ECHO How'd you get here?!
 ECHO .
 GOTO MENU 
 
-	:howtoroots4vzw
+	:rootvzws4
 CLS
 ECHO How to root your Verizon S4
 ECHO --------------------------------------
