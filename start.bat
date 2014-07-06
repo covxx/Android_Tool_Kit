@@ -27,7 +27,35 @@ IF /I '%INPUT%'=='1' GOTO ADB
 IF /I '%INPUT%'=='2' GOTO INFO
 IF /I '%INPUT%'=='3' GOTO HELP
 IF /I '%INPUT%'=='4' GOTO DEVICE
-IF /I '%INPUT%'=='5' GOTO QUIT
+IF /I '%INPUT%'=='5' GOTO TOOLS
+IF /I '%INPUT%'=='6' GOTO QUIT
+
+	:TOOLS
+	cls
+	ECHO -----------------------------------
+	ECHO +           Tool Menu             +
+	ECHO -----------------------------------
+	ECHO 1. Get Unlock thing for HTCDEV
+	ECHO 2. Menu 
+	ECHO.
+SET INPUT=
+SET /P INPUT=SELECT NUMBER OF OPTION:  
+
+IF /I '%INPUT%'=='1' GOTO UNLOCKHTC
+IF /I '%INPUT%'=='2' GOTO MENU
+
+:UNLOCKHTC
+cls
+@echo off
+cd C:\Users\covxx_2\Desktop\adb_fastboot_drivers
+print "now where the adb shit is"
+print "make sure you're in fastboot mode"
+pause 5
+print "now getting unlock token"
+fastboot oem get_identifier_token
+ECHO I dont know if this works but copy and paste the thing above
+pause 10
+GOTO MENU
 
  :INFO
 CLS
