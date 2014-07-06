@@ -31,6 +31,7 @@ IF /I '%INPUT%'=='5' GOTO TOOLS
 IF /I '%INPUT%'=='6' GOTO QUIT
 
 	:TOOLS
+	REM HEY UPDATE FINALY AFTER 15+ DAYS GO COVXX!!!!!!!!!!!!!!!!!
 	cls
 	ECHO -----------------------------------
 	ECHO +           Tool Menu             +
@@ -38,9 +39,9 @@ IF /I '%INPUT%'=='6' GOTO QUIT
 	ECHO 1. Get Unlock thing for HTCDEV
 	ECHO 2. Menu 
 	ECHO.
+	
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
-
 IF /I '%INPUT%'=='1' GOTO UNLOCKHTC
 IF /I '%INPUT%'=='2' GOTO MENU
 
