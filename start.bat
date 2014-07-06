@@ -1,7 +1,7 @@
-REM I started this back in my android days
-REM Now I'm too lazy too update since I no longer use these commands
-REM Maybe one day i'll finanly re-code this in C
-REM Don't count on it, at all.
+REM I started this back in my android days(which im still in??)
+REM Now I'm too lazy too update since computer is stupid
+REM naw
+REM Don't count on regularly updates, at all.
 @ECHO off
 
  :MENU
@@ -10,9 +10,9 @@ ECHO ===========================================================================
 ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
-ECHO = = = = = = = = = = = = = = == = = = = =
+ECHO + + + + + + + + + + + + + + + + + + +
 ECHO This is in kinda-active development 
-ECHO Beta 1  6/5/14-FINALLY
+ECHO Beta 2  7/6/14
 ECHO ====================================================================================
 ECHO 1. ADB Commands
 ECHO 2. Info
