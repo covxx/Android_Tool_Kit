@@ -37,13 +37,31 @@ IF /I '%INPUT%'=='6' GOTO QUIT
 	ECHO +           Tool Menu             +
 	ECHO -----------------------------------
 	ECHO 1. Get Unlock thing for HTCDEV
-	ECHO 2. Menu 
+	ECHO 2. Set SE to permissive  
+	ECHO 5. Menu 
 	ECHO.
 	
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 IF /I '%INPUT%'=='1' GOTO UNLOCKHTC
-IF /I '%INPUT%'=='2' GOTO MENU
+IF /I '%INPUT%'=='3' GOTO SETO0
+IF /I '%INPUT%'=='5' GOTO MENU
+
+:SETO0
+REM Lets set se to permissive 
+REM yay
+print "you need root for this (use towel root) and busybox installed"
+print " make sure ADB debugging is on too"
+print "k lets get it"
+adb
+adb shell 
+print "if there is any ever around here your device is recognized"
+su
+print "Check phone for super user pop up"
+setenforce 0
+print " k now go do your thing (you have 20 seconds)"
+pause 20
+GOTO MENU
 
 :UNLOCKHTC
 cls
