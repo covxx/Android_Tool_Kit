@@ -12,7 +12,7 @@ ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
 ECHO + + + + + + + + + + + + + + + + + + +
 ECHO This is in kinda-active development 
-ECHO Beta 2  7/6/14
+ECHO Beta 3 12/2/14 
 ECHO ====================================================================================
 ECHO 1. ADB Commands
 ECHO 2. Info
@@ -106,6 +106,7 @@ ECHO More will be added soon
 ECHO ----------------------------
 ECHO 1. Galaxy S4 VZW
 ECHO 2. HTC DNA
+ECHO 3. Firestick TV
 ECHO 4. Nexus 4
 ECHO ----------------------------
 SET INPUT=
@@ -113,10 +114,32 @@ SET /P INPUT=SELECT NUMBER OF OPTION:
 
 IF /I '%INPUT%'=='1' GOTO GS4VZW
 IF /I '%INPUT%'=='2' GOTO DNA
-IF /I '%INPUT%'=='3' GOTO NEXUS4
-IF /I '%INPUT%'=='4' GOTO x
+IF /I '%INPUT%'=='4' GOTO NEXUS4
+IF /I '%INPUT%'=='3' GOTO firestick
 IF /I '%INPUT%'=='5' GOTO x
 
+	:firestick
+	CLS 
+	ECHO Wanna sideload some apks?
+	ECHO I know you wanna :)
+	ECHO --------------------------
+SET input=
+SET /P INPUT=yes or no:
+IF /I '%INPUT%'=='yes' GOTO APKSIDELOADFIRE
+IF /I '%INPUT%'=='no' GOTO MENU
+
+	:APKSIDELOADFIRE
+	CLS
+	ECHO ---------------------
+	EHCO The APK has to be in this folder
+	ECHO And named sideload.apk 
+	ECHO (this is bash :( )
+	ECHO ------------------------
+	ECHO HIT a button when ready
+	pause
+	REM ADB connect IP ADDRESS ( need to figure out how to use variables here)
+	
+	
  :DNA
  ECHO Nothing here as of now
  ECHO To go back
