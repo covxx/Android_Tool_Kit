@@ -1,16 +1,17 @@
-REM I started this back in my android days(which im still in??)
-REM Now I'm too lazy too update since computer is stupid
-REM naw
-REM Don't count on regularly updates, at all.
+REM I started this back in my early android days
+REM Now I don't have time to update due to social life
+REM AND steam, maybe work
+REM Don't count on me updating this
 @ECHO off
 
  :MENU
-ECHO Welcome To covxx's Android Toolkit (that isn't and never will be done bc lazy srry)
+ECHO Welcome To covxx's Android Toolkit REM (that isn't and never will be done bc lack of time)
+ECHO Time since last actual update: 1 month and 13 days REM (I'll forget about this)
 ECHO ===================================================================================
 ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
-ECHO + + + + + + + + + + + + + + + + + + +
+ECHO ====================================
 ECHO This is in kinda-active development 
 ECHO Beta 3 12/2/14 
 ECHO ====================================================================================
@@ -19,6 +20,7 @@ ECHO 2. Info
 ECHO 3. Help
 ECHO 4. Devices
 ECHO 5. EXIT 
+
 ECHO.
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
@@ -27,11 +29,11 @@ IF /I '%INPUT%'=='1' GOTO ADB
 IF /I '%INPUT%'=='2' GOTO INFO
 IF /I '%INPUT%'=='3' GOTO HELP
 IF /I '%INPUT%'=='4' GOTO DEVICE
-IF /I '%INPUT%'=='5' GOTO TOOLS
-IF /I '%INPUT%'=='6' GOTO QUIT
+IF /I '%INPUT%'=='5' GOTO QUIT
+
 
 	:TOOLS
-	REM HEY UPDATE FINALY AFTER 15+ DAYS GO COVXX!!!!!!!!!!!!!!!!!
+	REM Hi user
 	cls
 	ECHO -----------------------------------
 	ECHO +           Tool Menu             +
@@ -73,6 +75,7 @@ pause 5
 print "now getting unlock token"
 fastboot oem get_identifier_token
 ECHO I dont know if this works but copy and paste the thing above
+REM I still don't know as of 1/15/2015 
 pause 10
 GOTO MENU
 
@@ -88,7 +91,7 @@ ECHO This will be re-written in C one day
 ECHO when I get bored like now.
 ECHO -----------------------------------
 ECHO I'll add more here someday
-ECHO Version: Beta 1 (this is probably outdated)
+ECHO Version: Beta 3 REM (this is not outdated)
 ECHO Press enter when ready to go back
 PAUSE
 GOTO MENU
@@ -99,6 +102,7 @@ ECHO This isn't coded
 ECHO Press enter when ready to go back
 GOTO MENU
 REM this isn't done and probably wont ever be 
+
  :DEVICE
  CLS
 ECHO All device specific things
@@ -140,7 +144,7 @@ IF /I '%INPUT%'=='no' GOTO MENU
 	REM ADB connect IP ADDRESS ( need to figure out how to use variables here)
 	
 	
- :DNA
+ :DNA 
  ECHO Nothing here as of now
  ECHO To go back
  GOTO MENU
@@ -168,7 +172,7 @@ IF /I '%INPUT%'=='5' GOTO QUIT
 
  :S4ROOTVZW
 
-CLS
+CLS REM I DIDN'T MAKE THIS PART, I JUST THREW IT IN TO
 ECHO =====================================
 ECHO =Thanks to Dan Rosenberg (@djrbliss)=
 ECHO =This motochopper -made by @djrbliss=
@@ -338,17 +342,10 @@ SET /P INPUT=SELECT NUMBER OF OPTION:
 IF /I '%INPUT%'=='1' GOTO 4
 IF /I '%INPUT%'=='2' GOTO 4.x
 
-	
-    :DNA
-CLS	
-ECHO Nothing here yet..
-ECHO Press enter to go back to main menu
-PAUSE
-GOTO MENU	
 
 	:NEXUS4
 CLS
-ECHO How'd you get here?!
+ECHO This isn't a thing, sorry
 ECHO .
 GOTO MENU 
 
@@ -365,4 +362,3 @@ ECHO Once you verified that super SU is working ,using Odin flash the kernel
 ECHO When ready press enter
 PAUSE
 GOTO S4ROOTVZW
-
