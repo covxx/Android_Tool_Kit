@@ -1,7 +1,4 @@
-REM I started this back in my early android days
-REM Now I don't have time to update due to social life
-REM AND steam, maybe work
-REM Don't count on me updating this
+REM COPYRIGHT COVXX 
 @ECHO off
 
  :MENU
@@ -12,44 +9,35 @@ ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
 ECHO ====================================
-ECHO This is in kinda-active development 
-ECHO Beta 3 12/2/14 
+ECHO This is in semi-active development 
+ECHO Beta 4 1/22/15 
 ECHO ====================================================================================
 ECHO 1. ADB Commands
-ECHO 2. Info
-ECHO 3. Help
-ECHO 4. Devices
-ECHO 5. EXIT 
+ECHO 2. Grab HTC unlock code
+ECHO 3. Set SE to permissive
+ECHO 4. Sideload apps to firestick (not working)
+ECHO 5. Galaxy S4 MDK root 
+ECHO 6. Sideload APK
+ECHO 7. Change APP install location
+ECHO 8. Info
+ECHO 10. EXIT 
 
 ECHO.
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
 
-IF /I '%INPUT%'=='1' GOTO ADB
-IF /I '%INPUT%'=='2' GOTO INFO
-IF /I '%INPUT%'=='3' GOTO HELP
-IF /I '%INPUT%'=='4' GOTO DEVICE
-IF /I '%INPUT%'=='5' GOTO QUIT
+IF /I '%INPUT%'=='1' GOTO ADBC
+IF /I '%INPUT%'=='2' GOTO UNLOCKHTC
+IF /I '%INPUT%'=='3' GOTO SETOP
+IF /I '%INPUT%'=='4' GOTO FIRESTICKSIDELOAD
+IF /I '%INPUT%'=='5' GOTO GS4VZW
+IF /I '%INPUT%'=='6' GOTO APKSIDELOAD
+IF /I '%INPUT%'=='7' GOTO APPINSTALLLOCO
+IF /I '%INPUT%'=='8' GOTO Info
+IF /I '%INPUT%'=='9' GOTO 
+IF /I '%INPUT%'=='10' GOTO EXIT
 
-
-	:TOOLS
-	REM Hi user
-	cls
-	ECHO -----------------------------------
-	ECHO +           Tool Menu             +
-	ECHO -----------------------------------
-	ECHO 1. Get Unlock thing for HTCDEV
-	ECHO 2. Set SE to permissive  
-	ECHO 5. Menu 
-	ECHO.
-	
-SET INPUT=
-SET /P INPUT=SELECT NUMBER OF OPTION:  
-IF /I '%INPUT%'=='1' GOTO UNLOCKHTC
-IF /I '%INPUT%'=='3' GOTO SETO0
-IF /I '%INPUT%'=='5' GOTO MENU
-
-:SETO0
+:SETOP
 REM Lets set se to permissive 
 REM yay
 print "you need root for this (use towel root) and busybox installed"
@@ -91,7 +79,7 @@ ECHO This will be re-written in C one day
 ECHO when I get bored like now.
 ECHO -----------------------------------
 ECHO I'll add more here someday
-ECHO Version: Beta 3 REM (this is not outdated)
+ECHO Version: Beta 4 REM (this is not outdated)
 ECHO Press enter when ready to go back
 PAUSE
 GOTO MENU
@@ -101,55 +89,19 @@ REM ECHO For help with
 ECHO This isn't coded
 ECHO Press enter when ready to go back
 GOTO MENU
-REM this isn't done and probably wont ever be 
+REM  Will get around to it
 
- :DEVICE
- CLS
-ECHO All device specific things
-ECHO More will be added soon
-ECHO ----------------------------
-ECHO 1. Galaxy S4 VZW
-ECHO 2. HTC DNA
-ECHO 3. Firestick TV
-ECHO 4. Nexus 4
-ECHO ----------------------------
-SET INPUT=
-SET /P INPUT=SELECT NUMBER OF OPTION:  
-
-IF /I '%INPUT%'=='1' GOTO GS4VZW
-IF /I '%INPUT%'=='2' GOTO DNA
-IF /I '%INPUT%'=='4' GOTO NEXUS4
-IF /I '%INPUT%'=='3' GOTO firestick
-IF /I '%INPUT%'=='5' GOTO x
-
-	:firestick
-	CLS 
-	ECHO Wanna sideload some apks?
-	ECHO I know you wanna :)
-	ECHO --------------------------
-SET input=
-SET /P INPUT=yes or no:
-IF /I '%INPUT%'=='yes' GOTO APKSIDELOADFIRE
-IF /I '%INPUT%'=='no' GOTO MENU
-
-	:APKSIDELOADFIRE
-	CLS
-	ECHO ---------------------
-	EHCO The APK has to be in this folder
-	ECHO And named sideload.apk 
-	ECHO (this is bash :( )
-	ECHO ------------------------
-	ECHO HIT a button when ready
-	pause
-	REM ADB connect IP ADDRESS ( need to figure out how to use variables here)
+	:FIRESTICKSIDELOAD
+CLS
+ECHO ---------------------
+EHCO The APK has to be in this folder
+ECHO And named sideload.apk 
+ECHO (this is bash :( )
+ECHO ------------------------
+ECHO HIT a button when ready
+pause
+REM ADB connect IP ADDRESS ( need to figure out how to use variables here)
 	
-	
- :DNA 
- ECHO Nothing here as of now
- ECHO To go back
- GOTO MENU
- PAUSE
- 
  :GS4VZW
 
 CLS
@@ -172,15 +124,12 @@ IF /I '%INPUT%'=='5' GOTO QUIT
 
  :S4ROOTVZW
 
-CLS REM I DIDN'T MAKE THIS PART, I JUST THREW IT IN TO
+CLS REM I DIDN'T MAKE THIS credit to Dan Rosenberg 
 ECHO =====================================
-ECHO =Thanks to Dan Rosenberg (@djrbliss)=
-ECHO =This motochopper -made by @djrbliss=
-ECHO =This can break your phone,if you do not my fault=
-ECHO =Or Dan=
-ECHO =Or anyone other then you=
-ECHO =Enjoy root though (~:=
-ECHO =Press enter to root your phone...=
+ECHO = Thanks to Dan Rosenberg (@djrbliss) =
+ECHO = This motochopper -made by @djrbliss =
+ECHO = This can break your phone,if you do not my fault =
+ECHO = Press enter to root your phone...   =
 ECHO ===================================
 PAUSE
 ECHO.
@@ -262,7 +211,7 @@ adb shell pm set-install-location 0
  PAUSE
  GOTO MENU 
  
-    :installphone
+    :APPINSTALLLOCO
 CLS
 ECHO Change install location to SD
 ECHO -------------------------------
@@ -275,7 +224,7 @@ SET /P INPUT=SELECT NUMBER OF OPTION:
 IF /I '%INPUT%'=='1' GOTO 4p
 IF /I '%INPUT%'=='2' GOTO 4xp
 
- :ADB
+ :ADBC
 CLS
 ECHO ADB Commands
 ECHO --------------
@@ -342,12 +291,6 @@ SET /P INPUT=SELECT NUMBER OF OPTION:
 IF /I '%INPUT%'=='1' GOTO 4
 IF /I '%INPUT%'=='2' GOTO 4.x
 
-
-	:NEXUS4
-CLS
-ECHO This isn't a thing, sorry
-ECHO .
-GOTO MENU 
 
 	:rootvzws4
 CLS
