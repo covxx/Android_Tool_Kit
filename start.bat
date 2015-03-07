@@ -2,16 +2,15 @@ REM COPYRIGHT COVXX
 @ECHO off
 
  :MENU
-ECHO Welcome To covxx's Android Toolkit REM (that isn't and never will be done bc lack of time)
-ECHO Time since last actual update: 1 month and 13 days REM (I'll forget about this)
-ECHO ===================================================================================
+ECHO Welcome To covxx's Android Toolkit
+ECHO =======================================
 ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
-ECHO ====================================
+ECHO =======================================
 ECHO This is in semi-active development 
-ECHO Beta 4 1/22/15 
-ECHO ====================================================================================
+ECHO Verison 1.50
+ECHO =======================================
 ECHO 1. ADB Commands
 ECHO 2. Grab HTC unlock code
 ECHO 3. Set SE to permissive
@@ -19,9 +18,9 @@ ECHO 4. Sideload apps to firestick (not working)
 ECHO 5. Galaxy S4 MDK root 
 ECHO 6. Sideload APK
 ECHO 7. Change APP install location
-ECHO 8. Info
-ECHO 10. EXIT 
-
+ECHO 8. Nexus things
+rem ECHO 20. Info
+ECHO 30. EXIT 
 ECHO.
 SET INPUT=
 SET /P INPUT=SELECT NUMBER OF OPTION:  
@@ -33,10 +32,23 @@ IF /I '%INPUT%'=='4' GOTO FIRESTICKSIDELOAD
 IF /I '%INPUT%'=='5' GOTO GS4VZW
 IF /I '%INPUT%'=='6' GOTO APKSIDELOAD
 IF /I '%INPUT%'=='7' GOTO APPINSTALLLOCO
-IF /I '%INPUT%'=='8' GOTO Info
-IF /I '%INPUT%'=='9' GOTO 
-IF /I '%INPUT%'=='10' GOTO EXIT
+IF /I '%INPUT%'=='8' GOTO nex
+IF /I '%INPUT%'=='20' GOTO info
+IF /I '%INPUT%'=='30' GOTO EXIT
 
+:nex
+cls
+print quick write up for doing nexus things
+print This will unlock the bootloader
+fastboot wait-for-device
+fastboot oem unlock
+print use volumes key to hit yes
+print waiting for stuff to finish (2 minutes)
+pause 120
+fastboot reboot
+print Bootloader is now unlocked, if you want root then  go here 
+print http://download.chainfire.eu/628/CF-Root/CF-Auto-Root/CF-Auto-Root-shamu-shamu-nexus6.zip
+pause 120
 :SETOP
 REM Lets set se to permissive 
 REM yay
