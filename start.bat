@@ -46,9 +46,9 @@ print use volumes key to hit yes
 print waiting for stuff to finish (2 minutes)
 pause 120
 fastboot reboot
-print Bootloader is now unlocked, if you want root then  go here 
-print http://download.chainfire.eu/628/CF-Root/CF-Auto-Root/CF-Auto-Root-shamu-shamu-nexus6.zip
+print Bootloader is now unlocked, serch XDA for root 
 pause 120
+
 :SETOP
 REM Lets set se to permissive 
 REM yay
