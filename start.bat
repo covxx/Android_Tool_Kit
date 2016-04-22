@@ -8,17 +8,19 @@ ECHO Using this tool at your own risk
 ECHO Any issues please report in the forum
 ECHO Remember to give thanks if this helped
 ECHO =======================================
-ECHO This is in semi-active development 
-ECHO Verison 1.50
+ECHO This is in semi-active development
+ECHO (AKA once a year update) 
+ECHO Verison 1.60 4/22/2016
 ECHO =======================================
 ECHO 1. ADB Commands
-ECHO 2. Grab HTC unlock code
+ECHO 2. Get HTC unlock code
 ECHO 3. Set SE to permissive
 ECHO 4. Sideload apps to firestick (not working)
 ECHO 5. Galaxy S4 MDK root 
 ECHO 6. Sideload APK
 ECHO 7. Change APP install location
 ECHO 8. Nexus things
+ECHO 9. HTC Flash Tool
 rem ECHO 20. Info
 ECHO 30. EXIT 
 ECHO.
@@ -33,8 +35,17 @@ IF /I '%INPUT%'=='5' GOTO GS4VZW
 IF /I '%INPUT%'=='6' GOTO APKSIDELOAD
 IF /I '%INPUT%'=='7' GOTO APPINSTALLLOCO
 IF /I '%INPUT%'=='8' GOTO nex
+IF /I '%INPUT%'=='9' GOTO HTFT
 IF /I '%INPUT%'=='20' GOTO info
 IF /I '%INPUT%'=='30' GOTO EXIT
+
+:HTFT
+REM Just incase someone ever needs this again
+CLS
+print This is my old HTC Flash Tool
+START htcflashtool.bat
+PAUSE 15
+exit
 
 :nex
 cls
@@ -46,7 +57,7 @@ print use volumes key to hit yes
 print waiting for stuff to finish (2 minutes)
 pause 120
 fastboot reboot
-print Bootloader is now unlocked, serch XDA for root 
+print Bootloader is now unlocked, search  XDA for root 
 pause 120
 
 :SETOP
