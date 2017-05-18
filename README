@@ -1,19 +1,19 @@
-Android Tool Kit in 307 lines of code
+Android Tool Kit in 329 lines of code
 ------------------
-A bunch of stuff I use(d) since 2013, thought it'd be cool to have an open tool kit but it didn't take off the way I 
-frist thought it would. I update this rarely (for now) but currently actively making into an actual program. 
+A bunch of stuff I use(d) since 2013, thought it'd be cool to have an open tool kit but it didn't take off the way I
+first thought it would. I update this rarely (for now) but currently actively making into an actual program.
 
 
 Combines basic ADB stuff with some advanced things as well like...
-1. Change SELINUX to permissive 
-2. Sideload APKs to the Fire TV (not fully working) 
-3. Change(APP) install location 
+1. Change SELINUX to permissive
+2. Sideload APKs to the Fire TV (not fully working)
+3. Change(APP) install location
 4. Root Verizon Galaxy S4 on mdk (OUTDATED)
 5. Get unlock code for HTCDEV
 
-By using this you agree to the following 
+By using this you agree to the following
     There is no warranty provided, if something goes wrong its on you.
-    
-    
-Credits(for stuff I didn't make & any help):
+
+
+Credits(for stuff I didn't make & any help)
     -Dan @djrbliss for motochopper
