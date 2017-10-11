@@ -15,11 +15,17 @@ ECHO 1. ADB Commands
 ECHO 2. Get HTC unlock code
 ECHO 3. Set SE to permissive
 ECHO 4. Sideload apps to firestick (not working)
+<<<<<<< HEAD
 ECHO 5. Galaxy S4 MDK root
 ECHO 6. Sideload APK
 ECHO 7. Change APP install location
 ECHO 8. Nexus things
 ECHO 9. HTC Flash Tool
+=======
+ECHO 5. Sideload APK
+ECHO 6. Change APP install location
+ECHO 7. OEM bootloader unlock
+>>>>>>> 09625f8bd22b0c170dc8ecda3ebef94215871e5f
 rem ECHO 20. Info
 ECHO 30. EXIT
 ECHO.
@@ -30,9 +36,9 @@ IF /I '%INPUT%'=='1' GOTO ADBC
 IF /I '%INPUT%'=='2' GOTO UNLOCKHTC
 IF /I '%INPUT%'=='3' GOTO SETOP
 IF /I '%INPUT%'=='4' GOTO FIRESTICKSIDELOAD
-IF /I '%INPUT%'=='5' GOTO GS4VZW
 IF /I '%INPUT%'=='6' GOTO APKSIDELOAD
 IF /I '%INPUT%'=='7' GOTO APPINSTALLLOCO
+<<<<<<< HEAD
 IF /I '%INPUT%'=='8' GOTO nex
 IF /I '%INPUT%'=='9' GOTO HTFT
 IF /I '%INPUT%'=='20' GOTO info
@@ -47,9 +53,17 @@ PAUSE 15
 exit
 
 :nex
+=======
+IF /I '%INPUT%'=='8' GOTO oemunlock
+IF /I '%INPUT%'=='20' GOTO info
+IF /I '%INPUT%'=='30' GOTO EXIT
+
+:oemunlock
+>>>>>>> 09625f8bd22b0c170dc8ecda3ebef94215871e5f
 cls
-print quick write up for doing nexus things
-print This will unlock the bootloader
+print quick write up for OEM unlock
+print This will unlock the bootloader if your device's bootloader is not locked by carrier 
+print Put your device in fastboot mode and connect it to computer, we'll start once ready
 fastboot wait-for-device
 fastboot oem unlock
 print use volumes key to hit yes

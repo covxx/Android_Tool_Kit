@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Android Tool Kit in 329 lines of code
 ------------------
 A bunch of stuff I use(d) since 2013, thought it'd be cool to have an open tool kit but it didn't take off the way I
@@ -17,3 +18,8 @@ By using this you agree to the following
 
 Credits(for stuff I didn't make & any help)
     -Dan @djrbliss for motochopper
+=======
+Android Tool Kit - "Rarely updated but always working."
+------------------
+A collection of ADB and fastboot tools that I find useful to have at a key press. 
+>>>>>>> 09625f8bd22b0c170dc8ecda3ebef94215871e5f
