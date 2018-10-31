@@ -1,4 +1,3 @@
-REM COPYRIGHT COVXX
 @ECHO off
 
  :MENU
@@ -7,8 +6,8 @@ ECHO =======================================
 ECHO Use this tool at your own risk
 ECHO Please report any issues
 ECHO =======================================
-ECHO This is in semi-active development
-ECHO (AKA once a year update)
+ECHO This is not in active development
+ECHO Use at your own risk
 ECHO Version 1.60 4/22/2016
 ECHO =======================================
 ECHO 1. ADB Commands
