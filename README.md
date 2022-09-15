@@ -1,4 +1,4 @@
-## Android Tool Kit
+## covxx's Android Tool Kit
 A collection of ADB/Fastboot tools and scripts from 2013/2015 compiled into a simple to use bat file. 
 
 ## Features
